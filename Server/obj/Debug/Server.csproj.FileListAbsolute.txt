@@ -1,0 +1,38 @@
+D:\files\unity project\DarkGod\Server\Server\bin\Debug\Server.exe.config
+D:\files\unity project\DarkGod\Server\Server\bin\Debug\Server.exe
+D:\files\unity project\DarkGod\Server\Server\bin\Debug\Server.pdb
+D:\files\unity project\DarkGod\Server\Server\obj\Debug\Server.csprojAssemblyReference.cache
+D:\files\unity project\DarkGod\Server\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+D:\files\unity project\DarkGod\Server\Server\obj\Debug\Server.exe
+D:\files\unity project\DarkGod\Server\Server\obj\Debug\Server.pdb
+D:\files\unity project\DarkGod\Server\Server\bin\Debug\PEProtocol.dll
+D:\files\unity project\DarkGod\Server\Server\bin\Debug\PESocket.dll
+D:\files\unity project\DarkGod\Server\Server\bin\Debug\PEProtocol.pdb
+D:\files\unity project\DarkGod\Server\Server\obj\Debug\Server.csproj.CopyComplete
+D:\files\unity project\DarkGod\server\Server\bin\Debug\MySql.Data.dll
+D:\learn\research\Server\Server\obj\Debug\Server.csprojAssemblyReference.cache
+D:\learn\research\Server\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+D:\learn\research\Server\Server\obj\Debug\Server.exe
+D:\learn\research\Server\Server\obj\Debug\Server.pdb
+D:\learn\research\Server\Server\bin\Debug\Server.exe.config
+D:\learn\research\Server\Server\bin\Debug\Server.exe
+D:\learn\research\Server\Server\bin\Debug\Server.pdb
+D:\learn\research\Server\Server\bin\Debug\MySql.Data.dll
+D:\learn\research\Server\Server\bin\Debug\PEProtocol.dll
+D:\learn\research\Server\Server\bin\Debug\PESocket.dll
+D:\learn\research\Server\Server\bin\Debug\PEProtocol.pdb
+D:\learn\research\Server\Server\obj\Debug\Server.csproj.CopyComplete
+D:\learn\research\Server\Server\bin\Debug\PESocket.pdb
+D:\learn\research\git-Server\Server\obj\Debug\Server.csprojAssemblyReference.cache
+D:\learn\research\git-Server\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+D:\learn\research\git-Server\Server\obj\Debug\Server.exe
+D:\learn\research\git-Server\Server\obj\Debug\Server.pdb
+D:\learn\research\git-Server\Server\bin\Debug\Server.exe.config
+D:\learn\research\git-Server\Server\bin\Debug\Server.exe
+D:\learn\research\git-Server\Server\bin\Debug\Server.pdb
+D:\learn\research\git-Server\Server\bin\Debug\MySql.Data.dll
+D:\learn\research\git-Server\Server\bin\Debug\PEProtocol.dll
+D:\learn\research\git-Server\Server\bin\Debug\PESocket.dll
+D:\learn\research\git-Server\Server\bin\Debug\PEProtocol.pdb
+D:\learn\research\git-Server\Server\bin\Debug\PESocket.pdb
+D:\learn\research\git-Server\Server\obj\Debug\Server.csproj.CopyComplete
