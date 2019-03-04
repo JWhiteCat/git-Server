@@ -73,7 +73,7 @@ namespace PEProtocol
     [Serializable]
     public class RspRegister
     {
-        public PlayerData playerData;
+        public bool result;
     }
     #endregion
 

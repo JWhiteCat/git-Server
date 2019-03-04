@@ -37,8 +37,21 @@ public class RegisterSys
 
         ReqRegister data = pack.msg.reqRegister;
 
-        cacheSvc.Register(data.acct, data.pass, data.name);
+        if(cacheSvc.Register(data.acct, data.pass, data.name))
+        {
+            msg.rspRegister = new RspRegister
+            {
+                result = true,
+            };
+        }
+        else
+        {
+            msg.rspRegister = new RspRegister
+            {
+                result = false,
+            };
+        }
 
-        //pack.session.SendMsg(msg);
+        pack.session.SendMsg(msg);
     }
 }

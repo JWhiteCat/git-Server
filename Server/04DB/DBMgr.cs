@@ -84,16 +84,49 @@ public class DBMgr
         return playerData;
     }
 
-    public PlayerData CreateNewAcct(string acct,string pass,string name)
+    public bool IsAcctExist(string acct)
     {
-        PlayerData playerData = null;
-        playerData = new PlayerData
+        MySqlDataReader reader = null;
+        isNew = true;
+        try
         {
-            id = -1,
-            name = name,
-        };
-        playerData.id = InsertNewAcctData(acct, pass, playerData);
-        return playerData;
+            MySqlCommand cmd = new MySqlCommand("select *from account where acct = @acct", conn);
+            cmd.Parameters.AddWithValue("acct", acct);
+            reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                isNew = false;
+            }
+        }
+        catch (Exception e)
+        {
+            PECommon.Log("IsAcctExist Error:" + e, LogType.Error);
+        }
+        finally
+        {
+            if (reader != null)
+            {
+                reader.Close();
+            }
+        }
+        return !isNew;
+    }
+
+    public bool CreateNewAcct(string acct,string pass,string name)
+    {
+        bool result = false;
+        if (!IsAcctExist(acct))
+        {
+            PlayerData playerData = null;
+            playerData = new PlayerData
+            {
+                id = -1,
+                name = name,
+            };
+            playerData.id = InsertNewAcctData(acct, pass, playerData);
+            result = true;
+        }
+        return result;
     }
 
     private int InsertNewAcctData(string acct, string pass, PlayerData pd)

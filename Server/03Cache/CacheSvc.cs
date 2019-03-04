@@ -99,9 +99,9 @@ public class CacheSvc
         PECommon.Log("Offine Result:SessionID:" + session.sessionID + " " + succ);
     }
 
-    public void Register(string acct, string pass,string name)
+    public bool Register(string acct, string pass,string name)
     {
-        dBMgr.CreateNewAcct(acct, pass, name);
+        return dBMgr.CreateNewAcct(acct, pass, name);
     }
 }
 
