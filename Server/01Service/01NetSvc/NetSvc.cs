@@ -40,7 +40,7 @@ public class NetSvc
     public void Init()
     {
         PESocket<ServerSession, GameMsg> server = new PESocket<ServerSession, GameMsg>();
-        server.StartAsServer("127.0.0.1", SrvCfg.srvPort);
+        server.StartAsServer("10.22.184.214", SrvCfg.srvPort);
 
         PECommon.Log("NetSvc Init Done.");
     }

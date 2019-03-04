@@ -12,6 +12,7 @@ using System;
 
 public class DBMgr
 {
+    public static bool isNew;
     private static DBMgr instance;
     public static DBMgr Instance
     {
@@ -38,7 +39,7 @@ public class DBMgr
     {
         PlayerData playerData = null;
         MySqlDataReader reader = null;
-        bool isNew = true;
+        isNew = true;
         try
         {
             MySqlCommand cmd = new MySqlCommand("select *from account where acct = @acct", conn);
@@ -71,13 +72,13 @@ public class DBMgr
             if (isNew)
             {
                 //不存在账号
-                playerData = new PlayerData
-                {
-                    id = -1,
-                    name = "",
-                };
+                //playerData = new PlayerData
+                //{
+                //    id = -1,
+                //    name = "",
+                //};
 
-                playerData.id = InsertNewAcctData(acct, pass, playerData);
+                //playerData.id = InsertNewAcctData(acct, pass, playerData);
             }
         }
         return playerData;

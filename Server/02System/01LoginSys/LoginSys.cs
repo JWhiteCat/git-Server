@@ -51,8 +51,12 @@ public class LoginSys
         {
             //未上线：
             PlayerData pd = cacheSvc.GetPlayerData(data.acct, data.pass);
+            if (DBMgr.isNew)
+            {
+                msg.err = (int)ErrorCode.AcctNotExist;
+            }
             //存在，检测密码
-            if (pd == null)
+            else if (pd == null)
             {
                 msg.err = (int)ErrorCode.WrongPass;
             }
@@ -62,7 +66,6 @@ public class LoginSys
                 {
                     playerData = pd
                 };
-
                 cacheSvc.AcctOnline(data.acct, pack.session, pd);
             }
         }
