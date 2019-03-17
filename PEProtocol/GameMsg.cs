@@ -7,6 +7,7 @@
 *****************************************************/
 
 using System;
+using System.Collections.Generic;
 using PENet;
 
 namespace PEProtocol
@@ -82,8 +83,11 @@ namespace PEProtocol
     public class ReqUpload
     {
         public string acct;
-        public string filename;
-        public byte[] datas;
+        public string[] filename;
+        public byte[][] bytes;
+
+        public string[] keywords;
+        public string[] summary;
     }
 
     [Serializable]
@@ -127,6 +131,7 @@ namespace PEProtocol
     public class SrvCfg
     {
         public const string srvIP = "127.0.0.1";
+        //101.132.173.95
         public const int srvPort = 17666;
     }
 }

@@ -36,16 +36,20 @@ public class UploadSys
         };
 
         ReqUpload data = pack.msg.reqUpload;
-        if (data != null)
+        if (data.filename.Length > 0)
         {
-            string path = "D:\\" + data.acct;
+            string path = "C:\\Research\\" + data.acct;
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-            FileStream fs = new FileStream("D:\\" + data.acct + "\\" + data.filename, FileMode.Create);
-            fs.Write(data.datas, 0, data.datas.Length);
-            fs.Close();
+
+            for(int i = 0; i < data.filename.Length; i++)
+            {
+                FileStream fs = new FileStream(path + "\\" + data.filename[i], FileMode.Create);
+                fs.Write(data.bytes[i], 0, data.bytes[i].Length);
+                fs.Close();
+            }
 
             msg.rspUpload = new RspUpload
             {
