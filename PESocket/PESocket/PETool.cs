@@ -11,6 +11,9 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 
+using System.Xml;
+using System.Xml.Serialization;
+
 namespace PENet {
     public class PETool {
 
@@ -36,28 +39,55 @@ namespace PENet {
             data.CopyTo(pkg, 4);
 
             //
-            FileStream fs = new FileStream("D:\\test.txt", FileMode.Create);
-            fs.Write(pkg, 0, pkg.Length);
-            fs.Close();
+            //FileStream fs = new FileStream("D:\\test.txt", FileMode.Create);
+            //fs.Write(pkg, 0, pkg.Length);
+            //fs.Close();
             //
             return pkg;
         }
 
         public static byte[] Serialize<T>(T pkg) where T : PEMsg {
-            using (MemoryStream ms = new MemoryStream()) {
-                BinaryFormatter bf = new BinaryFormatter();
-                bf.Serialize(ms, pkg);
-                ms.Seek(0, SeekOrigin.Begin);
-                return ms.ToArray();
+            //using (MemoryStream ms = new MemoryStream()) {
+            //    BinaryFormatter bf = new BinaryFormatter();
+            //    bf.Serialize(ms, pkg);
+            //    ms.Seek(0, SeekOrigin.Begin);
+            //    return ms.ToArray();
+
+            XmlSerializer serializer = new XmlSerializer(typeof(T));
+            using (StreamWriter streamWriter = File.CreateText("seXML.xml"))
+            {
+                serializer.Serialize(streamWriter, pkg);
             }
+            return FileTOByte("seXML.xml");
+        }
+
+        static byte[] FileTOByte(String path)
+        {
+            FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+            byte[] infbytes = new byte[(int)fs.Length];
+            fs.Read(infbytes, 0, infbytes.Length);
+            fs.Close();
+            return infbytes;
         }
 
         public static T DeSerialize<T>(byte[] bs) where T : PEMsg {
-            using (MemoryStream ms = new MemoryStream(bs)) {
-                BinaryFormatter bf = new BinaryFormatter();
-                T pkg = (T)bf.Deserialize(ms);
-                return pkg;
+            //using (MemoryStream ms = new MemoryStream(bs)) {
+            //    BinaryFormatter bf = new BinaryFormatter();
+            //    T pkg = (T)bf.Deserialize(ms);
+            //    return pkg;
+            //}
+
+            FileStream fs = new FileStream("deXML.xml", FileMode.Create, FileAccess.Write);
+            fs.Write(bs, 0, bs.Length);
+            fs.Close();
+
+            T pkg;
+            XmlSerializer serializer = new XmlSerializer(typeof(T));
+            using (StreamReader streamReader = File.OpenText("deXML.xml"))
+            {
+                pkg = serializer.Deserialize(streamReader) as T;
             }
+            return pkg;
         }
 
         #region Log
