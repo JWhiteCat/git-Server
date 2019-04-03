@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 using PEProtocol;
 
-public class UploadSys
+public class DeleteSys
 {
-    private static UploadSys instance;
-    public static UploadSys Instance
+    private static DeleteSys instance;
+    public static DeleteSys Instance
     {
         get
         {
             if (instance == null)
-                instance = new UploadSys();
+                instance = new DeleteSys();
             return instance;
         }
     }
@@ -25,17 +25,17 @@ public class UploadSys
     public void Init()
     {
         cacheSvc = CacheSvc.Instance;
-        PECommon.Log("UploadSys Init Done");
+        PECommon.Log("DeleteSys Init Done");
     }
 
-    public void ReqUpload(MsgPack pack)
+    public void ReqDelete(MsgPack pack)
     {
         GameMsg msg = new GameMsg
         {
-            cmd = (int)CMD.RspUpload
+            cmd = (int)CMD.RspDelete
         };
 
-        ReqUpload data = pack.msg.reqUpload;
+        ReqDelete data = pack.msg.reqDelete;
         string acct = cacheSvc.GetAcctBySession(pack.session);
 
         if (data.filename.Length > 0 && acct != "")
@@ -48,15 +48,25 @@ public class UploadSys
 
             for (int i = 0; i < data.filename.Length; i++)
             {
-                FileStream fs = new FileStream(path + "\\" + data.filename[i], FileMode.Create);
-                fs.Write(data.bytes[i], 0, data.bytes[i].Length);
-                fs.Close();
-            }
+                string filepath = path + "\\" + data.filename[i];
+                if (File.Exists(filepath))
+                {
+                    File.Delete(filepath);
+                }
+                else
+                {
+                    msg.err = (int)ErrorCode.FileNotExist;
+                    break;
+                }
 
-            msg.rspUpload = new RspUpload
-            {
-                result = true,
-            };
+                if(i==data.filename.Length - 1)
+                {
+                    msg.rspDelete = new RspDelete
+                    {
+                        result = true,
+                    };
+                }
+            }
         }
         else
         {

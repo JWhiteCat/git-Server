@@ -41,12 +41,23 @@
     <Compile Include="02System\01LoginSys\LoginSys.cs" />
     <Compile Include="02System\02UploadSys\UploadSys.cs" />
     <Compile Include="02System\03RegisterSys\RegisterSys.cs" />
+    <Compile Include="02System\04DownloadSys\DownloadSys.cs" />
+    <Compile Include="02System\05DeleteSys\DeleteSys.cs" />
     <Compile Include="03Cache\CacheSvc.cs" />
     <Compile Include="04DB\DBMgr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.10.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PEProtocol\PEProtocol.csproj">
@@ -57,15 +68,6 @@
       <Project>{b4239e0b-82f4-4f9a-a330-0afd46e88d02}</Project>
       <Name>PESocket</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.10.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Libs\MySql.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -33,6 +33,9 @@ public class ServerRoot
         LoginSys.Instance.Init();
 
         UploadSys.Instance.Init();
+        DownloadSys.Instance.Init();
+        DeleteSys.Instance.Init();
+
         RegisterSys.Instance.Init();
     }
 

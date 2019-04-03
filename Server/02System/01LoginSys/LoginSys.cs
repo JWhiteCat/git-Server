@@ -36,15 +36,11 @@ public class LoginSys
         GameMsg msg = new GameMsg
         {
             cmd = (int)CMD.RspLogin,
-            rspLogin = new RspLogin
-            {
-
-            }
         };
 
         if (cacheSvc.IsAcctOnLine(data.acct))
         {
-            //已上线：返回错误信息
+            //已上线：返回错误信息，将原来session踢下线
             msg.err = (int)ErrorCode.AcctIsOnline;
         }
         else

@@ -20,3 +20,7 @@ D:\learn\research\git-Server\PEProtocol\obj\Debug\PEProtocol.csproj.CoreCompileI
 D:\learn\research\git-Server\PEProtocol\obj\Debug\PEProtocol.csproj.CopyComplete
 D:\learn\research\git-Server\PEProtocol\obj\Debug\PEProtocol.dll
 D:\learn\research\git-Server\PEProtocol\obj\Debug\PEProtocol.pdb
+D:\learn\research\Libs\PEProtocol.dll
+D:\learn\research\Libs\PEProtocol.pdb
+D:\learn\research\git-Server\Libs\PEProtocol.dll
+D:\learn\research\git-Server\Libs\PEProtocol.pdb

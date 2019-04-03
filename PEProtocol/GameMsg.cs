@@ -26,6 +26,12 @@ namespace PEProtocol
 
         public ReqRegister reqRegister;
         public RspRegister rspRegister;
+
+        public ReqDownload reqDownload;
+        public RspDownload rspDownload;
+
+        public ReqDelete reqDelete;
+        public RspDelete rspDelete;
     }
 
     #region 登陆相关
@@ -82,7 +88,6 @@ namespace PEProtocol
     [Serializable]
     public class ReqUpload
     {
-        public string acct;
         public string[] filename;
         public byte[][] bytes;
 
@@ -95,6 +100,33 @@ namespace PEProtocol
     {
         public bool result;
     }
+    #endregion
+
+    #region 下载
+    [Serializable]
+    public class ReqDownload
+    {
+        public string[] filename;
+    }
+
+    [Serializable]
+    public class RspDownload
+    {
+        public string[] filename;
+        public byte[][] bytes;
+    }
+    #endregion
+
+    #region 删除
+    public class ReqDelete
+    {
+        public string[] filename;
+    }
+
+    public class RspDelete
+    {
+        public bool result;
+    } 
     #endregion
 
     public enum CMD
@@ -112,6 +144,12 @@ namespace PEProtocol
 
         ReqUpload = 201,
         RspUpload = 202,
+
+        ReqDownload = 301,
+        RspDownload = 302,
+
+        ReqDelete = 401,
+        RspDelete = 402,
     }
 
 
@@ -126,11 +164,14 @@ namespace PEProtocol
         AcctNotExist,
 
         NameIsExist,
+
+        FileNotExist,
+        NotSelect,
     }
 
     public class SrvCfg
     {
-        public const string srvIP = "127.0.0.1";
+        public const string srvIP = "10.30.28.22";
         //101.132.173.95
         public const int srvPort = 17666;
     }

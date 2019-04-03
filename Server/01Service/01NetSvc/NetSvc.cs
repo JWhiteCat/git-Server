@@ -13,6 +13,7 @@ using System.Collections.Generic;
 public class MsgPack
 {
     public ServerSession session;
+    public string acct;
     public GameMsg msg;
     public MsgPack(ServerSession session, GameMsg msg)
     {
@@ -40,7 +41,7 @@ public class NetSvc
     public void Init()
     {
         PESocket<ServerSession, GameMsg> server = new PESocket<ServerSession, GameMsg>();
-        server.StartAsServer("127.0.0.1", SrvCfg.srvPort);
+        server.StartAsServer("10.30.28.22", SrvCfg.srvPort);
         //172.19.149.192
 
         PECommon.Log("NetSvc Init Done.");
@@ -74,7 +75,6 @@ public class NetSvc
             case CMD.ReqLogin:
                 LoginSys.Instance.ReqLogin(pack);
                 break;
-
             case CMD.ReqRename:
                 LoginSys.Instance.ReqRename(pack);
                 break;
@@ -83,6 +83,12 @@ public class NetSvc
                 break;
             case CMD.ReqRegister:
                 RegisterSys.Instance.ReqRegister(pack);
+                break;
+            case CMD.ReqDownload:
+                DownloadSys.Instance.ReqDownload(pack);
+                break;
+            case CMD.ReqDelete:
+                DeleteSys.Instance.ReqDelete(pack);
                 break;
         }
     }

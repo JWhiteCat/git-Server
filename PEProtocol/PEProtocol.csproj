@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Client\</OutputPath>
+    <OutputPath>..\Libs\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -37,9 +37,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="PESocket">
-      <HintPath>..\Libs\PESocket.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\PESocket\PESocket\PESocket.csproj">
+      <Project>{b4239e0b-82f4-4f9a-a330-0afd46e88d02}</Project>
+      <Name>PESocket</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

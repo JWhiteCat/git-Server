@@ -57,6 +57,7 @@ namespace PENet {
             using (StreamWriter streamWriter = File.CreateText("seXML.xml"))
             {
                 serializer.Serialize(streamWriter, pkg);
+                streamWriter.Close();
             }
             return FileTOByte("seXML.xml");
         }
@@ -86,6 +87,7 @@ namespace PENet {
             using (StreamReader streamReader = File.OpenText("deXML.xml"))
             {
                 pkg = serializer.Deserialize(streamReader) as T;
+                streamReader.Close();
             }
             return pkg;
         }

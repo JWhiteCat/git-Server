@@ -35,7 +35,25 @@ public class CacheSvc
 
     public bool IsAcctOnLine(string acct)
     {
+        ServerSession session;
+        onLineAcctDic.TryGetValue(acct,out session);
+        if(session != null)
+        {
+            session.Clear();
+        }
         return onLineAcctDic.ContainsKey(acct);
+    }
+
+    public string GetAcctBySession(ServerSession session)
+    {
+        foreach (var item in onLineAcctDic)
+        {
+            if (item.Value == session)
+            {
+                return item.Key;
+            }
+        }
+        return "";
     }
 
     /// <summary>
