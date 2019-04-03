@@ -40,7 +40,7 @@ public class LoginSys
 
         if (cacheSvc.IsAcctOnLine(data.acct))
         {
-            //已上线：返回错误信息，将原来session踢下线
+            //已上线：返回错误信息
             msg.err = (int)ErrorCode.AcctIsOnline;
         }
         else
